@@ -1,17 +1,31 @@
-<!DOCTYPE HTML>
-<html ng-app="libraryApp" >
-  <head>
-    <title><%= title %></title>
-    <link rel="stylesheet" href="dist/css/style.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<%- contentFor('content') %>
 
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script src="dist/js/app.min.js"></script>
-  </head>
-  <body ng-controller="mainCtrl">
-    <h1 class="library">Library</h1>
-    Testing {{ something }}
-  </body>
-</html>
+    <div id="admin-panel" ng-controller="mainCtrl">
+        <h1 class="library">Library</h1>
+        <button type="button" class="btn btn-primary" ng-click="addBookModal()">Add Book</button>
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>Book Name</th>
+                    <th>Author</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="book in books">
+                    <td>
+                        <span>{{ book.name }}</span>
+                    </td>
+                    <td>
+                        <span>{{ book.author }}</span>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-default" ng-click="editBookModal( book.id )">Edit</button>
+                        <button type="button" class="btn btn-danger" ng-click="deleteBookModal( book.id )">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+<%- %>
