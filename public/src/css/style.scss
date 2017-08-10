@@ -1,32 +1,56 @@
+// Colors
+@import 'colors';
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Oxygen');
+
 body {
+  color: $off-black;
+  background-color: $off-white;
+  font-family: 'Oxygen', sans-serif;
 }
 
-h1.title {
-  color: green;
+a:hover {
+  text-decoration: none;
 }
 
-.logo-image {
+h1.name-brand {
+  color: $strong-blue;
 }
 
-.menu-color {
-  background-color: #89c9cb;
-}
-
-.img-slider {
-  max-height: 400px;
-  width: 100%
-}
-
-.support-image {
-  max-width: 750px;
+.name-brand {
+  font-weight: bolder;
 }
 
 .space-bottom {
   margin-bottom: 40px;
 }
 
-.social-icons {
-  .social-icon:hover {
-    text-decoration: none;
+.menu-container {
+  li a { color: $strong-blue }
+
+  .menu-color {
+    background-color: $lighter-blue;
   }
+}
+
+.slider-container {
+  .img-slider {
+    max-height: 400px;
+    width: 100%
+  }
+}
+
+.main-container {
+  font-family: 'Roboto', sans-serif;
+
+  .support-image {
+    max-width: 750px;
+  }
+}
+
+.footer-container {
+  font-weight: bolder;
+  line-height: 3em;
 }
