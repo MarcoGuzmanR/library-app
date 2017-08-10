@@ -1,8 +1,32 @@
-#admin-panel {
-  max-width: 915px;
-  margin: auto;
+body {
 }
 
-h1.library {
+h1.title {
   color: green;
+}
+
+.logo-image {
+}
+
+.menu-color {
+  background-color: #89c9cb;
+}
+
+.img-slider {
+  max-height: 400px;
+  width: 100%
+}
+
+.support-image {
+  max-width: 750px;
+}
+
+.space-bottom {
+  margin-bottom: 40px;
+}
+
+.social-icons {
+  .social-icon:hover {
+    text-decoration: none;
+  }
 }

@@ -21,7 +21,8 @@ module.exports = function( grunt ) {
     sass: {
       dist: {
         files: {
-          'public/dist/css/style.css': 'public/src/css/style.scss'
+          'public/dist/css/style.css': 'public/src/css/style.scss',
+          'public/dist/css/admin.css': 'public/src/css/admin.scss'
         }
       }
     },
@@ -30,7 +31,8 @@ module.exports = function( grunt ) {
     cssmin: {
       build: {
         files: {
-          'public/dist/css/style.min.css': 'public/dist/css/style.css'
+          'public/dist/css/style.min.css': 'public/dist/css/style.css',
+          'public/dist/css/admin.min.css': 'public/dist/css/admin.css'
         }
       }
     },

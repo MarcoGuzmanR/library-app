@@ -1,9 +1,10 @@
-const express = require('express');
+const express        = require('express');
 const expressLayouts = require('express-ejs-layouts');
-const path    = require('path');
-const bodyParser = require('body-parser');
-const router  = express.Router();
-var   books   = require( './data/books.js' );
+const path           = require('path');
+const bodyParser     = require('body-parser');
+const router         = express.Router();
+var   books          = require( './data/books.js' );
+const categories     = require( './data/categories.js' );
 
 // Set up Express app
 const app = express();
@@ -20,12 +21,16 @@ app.set( 'view engine', 'ejs' );
 // Layout and block rendering
 app.use( expressLayouts );
 
-// Routes
 router.get('/', ( req, res ) => {
-  res.render( 'index', { title: 'Library' } );
+  res.render( 'index', { title: 'OB Library' } );
 });
 
-// Index
+// Routes
+router.get('/admin', ( req, res ) => {
+  res.render( 'adminIndex', { title: 'Library', layout: 'adminLayout' } );
+});
+
+// Index for Books
 router.get('/books', ( req, res ) => {
   res.json( { books: books.allBooks } );
 });
@@ -36,10 +41,14 @@ router.post('/books', ( req, res ) => {
     id: books.allBooks.length + 1,
     name: req.body.name,
     author: req.body.author,
-    category: req.body.category,
-    publishedDate: Date.now(),
+    category_id: req.body.category_id,
+    publishedDate: req.body.publishedDate,
     user: req.body.user
   };
+
+  if ( typeof book.publishedDate !== 'number' ) {
+    book.publishedDate = new Date( book.publishedDate ).getTime();
+  }
 
   books.allBooks.push( book );
 
@@ -59,9 +68,12 @@ router.put('/book/:id', ( req, res ) => {
   let book =
     books.allBooks.find( book => book.id === parseInt( req.params.id ) );
 
-  book.name = req.body.name;
-  book.author = req.body.author;
-  book.category = req.body.category;
+  book.name          = req.body.name;
+  book.author        = req.body.author;
+  book.category_id   = req.body.category_id;
+  book.available     = req.body.available;
+  book.publishedDate = new Date( req.body.publishedDate ).getTime();
+  book.user          = req.body.user;
 
   res.json( { books: books.allBooks });
 });
@@ -72,6 +84,11 @@ router.delete('/book/:id', ( req, res ) => {
     books.allBooks.filter( book => book.id !== parseInt( req.params.id ) );
 
   res.json( { books: books.allBooks });
+});
+
+// Index for Books
+router.get('/categories', ( req, res ) => {
+  res.json( { categories: categories.allCategories } );
 });
 
 app.use( '/', router );

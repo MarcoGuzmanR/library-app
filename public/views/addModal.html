@@ -15,13 +15,14 @@
 
     <div class="form-group">
       <label for="category">Category</label>
-      <input type="text" class="form-control" ng-model="newBook.category" />
+      <select class="form-control" name="selectCategory" ng-options="category.name for category in categories track by category.id" ng-model="selectedCategory">
+      </select>
     </div>
 
     <div class="form-group">
       <label for="publishedDate">Published Date</label>
       <p class="input-group">
-        <input type="text" class="form-control" is-open="popup.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" ng-model="newBook.publishedDate" />
+        <input type="text" class="form-control" uib-datepicker-popup is-open="popup.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" ng-model="newBook.publishedDate" />
         <span class="input-group-btn">
           <button type="button" class="btn btn-default" ng-click="openCalendar()">
             <i class="glyphicon glyphicon-calendar"></i>
@@ -39,5 +40,5 @@
 </div>
 <div class="modal-footer">
   <button type="button" class="btn btn-primary" ng-click="addBook()">Add</button>
-  <button type="button" class="btn">Cancel</button>
+  <button type="button" class="btn" ng-click="cancel()">Cancel</button>
 </div>

@@ -1,31 +1,95 @@
 <%- contentFor('content') %>
-
-    <div id="admin-panel" ng-controller="mainCtrl">
-        <h1 class="library">Library</h1>
-        <button type="button" class="btn btn-primary" ng-click="addBookModal()">Add Book</button>
-        <table class="table table-striped table-hover">
-            <thead>
-                <tr>
-                    <th>Book Name</th>
-                    <th>Author</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="book in books">
-                    <td>
-                        <span>{{ book.name }}</span>
-                    </td>
-                    <td>
-                        <span>{{ book.author }}</span>
-                    </td>
-                    <td>
-                        <button type="button" class="btn btn-default" ng-click="editBookModal( book.id )">Edit</button>
-                        <button type="button" class="btn btn-danger" ng-click="deleteBookModal( book.id )">Delete</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+    <div class="container space-bottom">
+        <h1 class="title">Open Book Library</h1>
     </div>
 
+    <div class="menu-container container navbar-wrapper space-bottom">
+        <nav class="navbar menu-color">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">
+                        <img src="/src/images/openbooklogo.png" class="logo-image d-inline-block align-top" height="50" width="70"/>
+                        Open Book
+                    </a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active">
+                            <a href="#">Home</a>
+                        </li>
+                        <li>
+                            <a href="#">About Us</a>
+                        </li>
+                        <li>
+                            <a href="#">Contact</a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav pull-right">
+                        <li class="active">
+                            <a href="//www.google.com">Google</a>
+                        </li>
+                        <li>
+                            <a href="#library-desc">Go To</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="slider-container container space-bottom" ng-controller="mainCtrl">
+        <div>
+            <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
+                <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
+                    <img ng-src="{{ slide.image }}" class="img-slider" />
+                    <div class="carousel-caption">
+                        <h1>{{ slide.text }}</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-container container space-bottom">
+        <div class="row">
+            <div id="library-desc" class="col-md-4">
+                <h3>Open Library Book</h3>
+                <p>has a great amount of books.</p>
+                <p>You can find almost any type of book and you can borrow to home with a simple process of subscription with us totally free!</p>
+                <p>Join us and enjoy of full reading!</p>
+            </div>
+            <div class="col-md-8">
+                <img class="support-image" src="/src/images/support-image.jpg" />
+            </div>
+        </div>
+    </div>
+
+    <hr class="container">
+<%- %>
+
+<%- contentFor('contentFooter') %>
+    <div class="footer-container container space-bottom">
+        <div class="row">
+            <div class="col-md-3">
+                <a href="#">
+                    <img src="/src/images/openbooklogo.png" class="logo-image d-inline-block align-top" height="50" width="70"/>
+                    <span>Open Book Library</span>
+                </a>
+            </div>
+            <div class="col-md-6 text-center">
+                <p>The best experience you could have on reading!</p>
+            </div>
+            <div class="col-md-3 social-icons text-right">
+                <a class="social-icon" href="//facebook.com">
+                    <img src="/src/images/facebook-icon.png" />
+                </a>
+                <a class="social-icon" href="//instagram.com">
+                    <img src="/src/images/instagram-icon.png" />
+                </a>
+                <a class="social-icon" href="//twitter.com">
+                    <img src="/src/images/twitter-icon.png" />
+                </a>
+            </div>
+        </div>
+    </div>
 <%- %>

@@ -1,0 +1,19 @@
+<div class="modal-header">
+  <h2>Update Availability Book</h2>
+</div>
+<div class="modal-body">
+  <form>
+    <div class="form-group" ng-show="selectedBook.available">
+      <label for="user">User</label>
+      <input type="text" class="form-control" ng-model="selectedBook.user" />
+    </div>
+    <p>Are you sure you want to {{ selectedBook.available ? 'lend' : 'unlend' }} this book to the user?</p>
+  </form>
+
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-primary" ng-click="lendOrUnlendBook()">
+    {{ selectedBook.available ? 'Lend' : 'Unlend' }}
+  </button>
+  <button type="button" class="btn" ng-click="cancel()">Cancel</button>
+</div>

@@ -1,5 +1,7 @@
 angular.module('libraryApp', [
   'ui.bootstrap',
-  'firstPage',
-  'Book'
+  'adminPage',
+  'mainPage',
+  'Book',
+  'Category'
 ]);
