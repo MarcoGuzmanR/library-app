@@ -24,9 +24,10 @@ $ grunt
 The library public site is under the root address and the admin site is under
 /admin
 
-As you can see in the public site, I suck at designing.
+As you can see in the public site, I suck at designing but I did my best as I
+could according my time this week.
 
-The data for books and categories are hard coded. Despite is this data is not
+The data for books and categories are hard coded. Despite this data is not
 persisted, you are able to add, edit, or remove books but if you restart the
 server, this data will be reloaded again as it was at the beginning.
 
